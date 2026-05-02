@@ -16,7 +16,12 @@ module.exports = class BookstoreService extends cds.ApplicationService {
       const query4 = await SELECT.one.from(Books).where({ stock: 45 }); // select first record with all columns
       const query5 = await SELECT.from(Books).where({ stock: 45 }); // select first record with all 
       const query6 = await SELECT.from(Books).where({ stock: { '<': 50 } })
-      const query7 = await SELECT.from(Books).where({ stock: { '<': 50 } }).and({ price: { '<': 100 } }); // select first 
+      const query7 = await
+        SELECT
+          .from(Books)
+          .where({ stock: { '<': 50 } })
+          .and({ price: { '<': 100 } }); // select first 
+
       const query8 = await SELECT.from(Books).columns('author_ID');
 
       const query9 = await SELECT.distinct.from(Books).columns('author_ID');
@@ -33,7 +38,13 @@ module.exports = class BookstoreService extends cds.ApplicationService {
       //return query1;
       // await DELETE.from(Books);
       // await DELETE.from(Books).where({ID: 3});
-      await DELETE.from(Books).where({ stock: { '<': 50 } })
+      // await DELETE.from(Books).where({ stock: { '<': 50 } })
+
+      // *** Examples for UPDATE queries ***
+      // const result = await UPDATE(Books).set({ stock: 200 }) // returns the number of updated records
+      //await UPDATE(Books).set({stock:200}).where({ID: 5});
+      //await UPDATE(Books).set({stock:100, price: 20.99}).where({ID: 5});
+
 
       return SELECT.from(Books);
 
