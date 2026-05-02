@@ -9,7 +9,7 @@ module.exports = class BookstoreService extends cds.ApplicationService {
       console.log('READ Books', req.data);
 
       // *** Examples for SELECT queries ***
-      const query0 = SELECT.from(Books);
+      const query0 = SELECT.from(Books); // CQN object to see the query object without executing it, you can omit the await and log the query object directly
       const query1 = await SELECT.from(Books); // select all books with all columns
       const query2 = await SELECT.from(Books).columns('title', 'author.name', 'stock');
       const query3 = await SELECT.one.from(Books); // select first record with all columns
@@ -27,7 +27,15 @@ module.exports = class BookstoreService extends cds.ApplicationService {
 
       console.log('Query0', query0);
 
-      return query1;
+      // *** Examples for DELETE queries ***
+      //await DELETE.from(Books);
+
+      //return query1;
+      // await DELETE.from(Books);
+      // await DELETE.from(Books).where({ID: 3});
+      await DELETE.from(Books).where({ stock: { '<': 50 } })
+
+      return SELECT.from(Books);
 
     })
 
