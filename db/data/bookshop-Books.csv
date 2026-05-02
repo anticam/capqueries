@@ -1,0 +1,11 @@
+ID,author_ID,title,stock,price
+1,101,The Pragmatick Programmer,39,68.38
+2,102,Clean Code,71,59.55
+3,103,The Mythical Man-Month,23,83.51
+4,101,Clean Architecture,6,897.34
+5,104,Design Patterns,61,32.15
+6,102,The Clean Coder,15,42.52
+7,105,Refactoring,45,46.81
+8,103,The Art of Computer Programming,15,22.05
+9,104,Head First Design Patterns,45,41.16
+10,105,Working Effectively with Legacy Code,3,106.86
